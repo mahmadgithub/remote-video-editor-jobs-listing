@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remote Video Job Hunt – AI UGC & Real Estate</title>
+<style>
+  :root{--bg:#f6f7f9;--card:#fff;--ink:#1c2230;--muted:#667085;--line:#e3e6ec;--accent:#2f5bea;--ok:#12805c;--warn:#b25e09;--bad:#b42318}
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+  header{padding:28px 20px 12px;max-width:1100px;margin:auto}
+  h1{margin:0 0 4px;font-size:26px}
+  header p{margin:0;color:var(--muted)}
+  nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+  nav .in{max-width:1100px;margin:auto;padding:10px 20px;display:flex;gap:8px;flex-wrap:wrap}
+  nav a{padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:14px}
+  nav a:hover{border-color:var(--accent);color:var(--accent)}
+  main{max-width:1100px;margin:auto;padding:8px 20px 60px}
+  section{margin-top:32px}
+  h2{font-size:20px;margin:0 0 4px}
+  .sub{color:var(--muted);margin:0 0 12px;font-size:14px}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 14px}
+  input[type=search],select{padding:8px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
+  input[type=search]{flex:1;min-width:220px}
+  .count{color:var(--muted);align-self:center;font-size:14px}
+  table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;font-size:14px}
+  th{background:#fafbfc;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  tr:last-child td{border-bottom:0}
+  tr.done td{opacity:.45}
+  td a{color:var(--accent);text-decoration:none;font-weight:500}
+  td a:hover{text-decoration:underline}
+  .tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+  .pk{background:#e3f6ee;color:var(--ok)}
+  .world{background:#e6eefe;color:var(--accent)}
+  .check{background:#fdf0dc;color:var(--warn)}
+  .restricted{background:#fde7e4;color:var(--bad)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .card h3{margin:0 0 4px;font-size:16px}
+  .card p{margin:4px 0;font-size:14px;color:var(--muted)}
+  .kw{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .kw button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 9px;font:13px ui-monospace,Menlo,monospace;cursor:pointer}
+  .kw button:hover{border-color:var(--accent);color:var(--accent)}
+  .kw button.copied{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .note{background:#fff8e6;border:1px solid #f1dc9b;border-radius:10px;padding:12px 16px;font-size:14px}
+  .note ul{margin:6px 0 0;padding-left:20px}
+  footer{max-width:1100px;margin:auto;padding:0 20px 40px;color:var(--muted);font-size:13px}
+  @media(max-width:700px){th:nth-child(4),td:nth-child(4),th:nth-child(5),td:nth-child(5){display:none}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Remote Video Job Hunt</h1>
+  <p>AI UGC video creator / editor &amp; real estate video editor · Based in Pakistan · Compiled 5 Nov 2026</p>
+</header>
+<nav><div class="in">
+  <a href="#jobs">Jobs</a><a href="#keywords">Keywords</a><a href="#manual">Manual-search platforms</a>
+  <a href="#marketplaces">Creator marketplaces</a><a href="#employers">Direct employers</a><a href="#tips">Tips</a>
+</div></nav>
+
+<main>
+<section id="jobs">
+  <h2>Job listings</h2>
+  <p class="sub">Found through web search, so dates were not verified. Open each one, check it is still open and that Pakistan is allowed. Tick the box when you have applied (saved in this browser).</p>
+  <div class="controls">
+    <input type="search" id="q" placeholder="Search company, title, platform…">
+    <select id="fCat"><option value="">All roles</option><option>AI UGC</option><option>Real estate</option></select>
+    <select id="fScope">
+      <option value="">All locations</option>
+      <option value="pk">Pakistan listed</option>
+      <option value="world">Worldwide</option>
+      <option value="check">Check eligibility</option>
+      <option value="restricted">Region restricted</option>
+    </select>
+    <select id="fPlat"><option value="">All platforms</option></select>
+    <span class="count" id="count"></span>
+  </div>
+  <table>
+    <thead><tr><th>✓</th><th>Role</th><th>Company</th><th>Platform</th><th>Pay</th><th>Location</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+</section>
+
+<section id="keywords">
+  <h2>Search keywords</h2>
+  <p class="sub">Click a keyword to copy it. Add <b>remote</b> or <b>worldwide</b> to narrow results.</p>
+  <div class="grid" id="kwGrid"></div>
+</section>
+
+<section id="manual">
+  <h2>Platforms to search manually</h2>
+  <p class="sub">My search tool can't log in or index these. Use the keywords above.</p>
+  <div class="grid" id="manualGrid"></div>
+</section>
+
+<section id="marketplaces">
+  <h2>Creator marketplaces</h2>
+  <p class="sub">You sign up and brands find you. Pakistan eligibility comes from third-party sources, so confirm on each site.</p>
+  <table>
+    <thead><tr><th>Platform</th><th>Pakistan?</th><th>Cost</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://collabstr.com/creator" target="_blank" rel="noopener">Collabstr</a></td><td><span class="tag world">Likely yes</span></td><td>Free, 15% per order</td><td>Payouts to about 150 countries. Set your own rates. Start here.</td></tr>
+      <tr><td><a href="https://insense.pro/for-creators/en" target="_blank" rel="noopener">Insense</a></td><td><span class="tag check">Unclear</span></td><td>Not found</td><td>Apply as <a href="https://help-creators.insense.pro/how-to-join-insense-as-a-ugc-only-creator" target="_blank" rel="noopener">UGC-only creator</a>. Portfolio review. Ask support about Pakistan first.</td></tr>
+      <tr><td><a href="https://billo.app/for-creators/" target="_blank" rel="noopener">Billo</a></td><td><span class="tag restricted">Probably no</span></td><td>Free app</td><td>US, Canada, UK, Australia only. From $30 per video.</td></tr>
+      <tr><td><a href="https://help.joinbrands.com/en/articles/7920858-creators-is-it-possible-to-join-from-a-different-country" target="_blank" rel="noopener">JoinBrands</a></td><td><span class="tag restricted">No</span></td><td>15–20% fee</td><td>US, UK, Germany, Australia, Canada only. Foreign accounts get flagged.</td></tr>
+      <tr><td><a href="https://trend.io/" target="_blank" rel="noopener">Trend.io</a></td><td><span class="tag restricted">No</span></td><td>Free</td><td>US creators only, iOS device, 2–3 month waitlist.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="employers">
+  <h2>Companies to contact directly</h2>
+  <p class="sub">These sell or use video services. None advertised an open role. Send a short reel and your rates.</p>
+  <div class="grid">
+    <div class="card"><h3><a href="https://agentadvisory.com/" target="_blank" rel="noopener">Agent Advisory</a></h3><p>Toronto firm. YouTube coaching and done-for-you editing for real estate agents. No careers page.</p></div>
+    <div class="card"><h3><a href="https://www.passiveprospecting.com/" target="_blank" rel="noopener">Passive Prospecting</a></h3><p>YouTube coaching for agents. Has an "editor placement" link, so check what it offers before paying anything.</p></div>
+    <div class="card"><h3>Real estate YouTube coaches</h3><p>Search LinkedIn or X for "real estate YouTube agency" and "real estate content agency".</p></div>
+    <div class="card"><h3>AI UGC tool companies</h3><p>HeyGen, Arcads, Creatify, MakeUGC, Higgsfield, Captions. Check each careers page. Only HeyGen showed a role.</p></div>
+  </div>
+</section>
+
+<section id="tips">
+  <h2>Tips</h2>
+  <div class="note">
+    <ul>
+      <li>Keep two reels ready: AI UGC ads and real estate reels. Name the tools you used (HeyGen, Higgsfield, CapCut, Premiere).</li>
+      <li>Set job alerts on LinkedIn, Indeed and Upwork with the keywords above. Reply within hours.</li>
+      <li>Many employers use a paid test task. That is normal. Don't do long unpaid work.</li>
+      <li>Several "worldwide" roles need US or UK hours. Check the overlap.</li>
+      <li>Never pay to apply. Never share ID or bank details before a signed agreement.</li>
+      <li>Use your real country on marketplaces. Don't use a VPN or fake address to get around location rules.</li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer>Listings come from public web search and may be outdated or closed. Verify the employer before sharing personal information.</footer>
+
+<script>
+// scope: pk = Pakistan listed, world = worldwide, check = verify eligibility, restricted = other region only
+const JOBS = [
+ // ---------- AI UGC ----------
+ ["AI UGC","Video Editor (performance creative)","Activate Talent","Marketing Monk","2–5 yrs exp","Remote (Pakistan)","pk","https://www.marketingmonk.so/jobboard/jobs/51298230885-video-editor-at-activate-talent-911s6t"],
+ ["AI UGC","TikTok AI Content Creator (internship)","Activate Talent","Marketing Monk","Not stated","Anywhere in Pakistan","pk","https://www.marketingmonk.so/jobboard/jobs/43827293064-tiktok-ai-content-creator-at-activate-talent-bz6710"],
+ ["AI UGC","Video Editor / Motion Graphics","Activate Talent","Marketing Monk","Not stated","Check","check","https://www.marketingmonk.so/jobboard/jobs/video-editor-motion-graphics-specialist-at-activate-talent-wpzvin"],
+ ["AI UGC","AI Video Creator (full-time)","BuzzyBooth","Marketing Monk","Not stated","Asia/Karachi timezone","pk","https://www.marketingmonk.so/jobboard/jobs/ai-video-creator-at-buzzybooth-com-9ec7qa"],
+ ["AI UGC","TikTok Content Strategist / AI Video Creator","Qureos employer","Qureos","Not stated","Pakistan remote","pk","https://app.qureos.com/jobs/remote-tiktok-content-strategist-ai-video-creator-1757583774299"],
+ ["AI UGC","YouTube Shorts Editor & Growth Strategist","Qureos employer","Qureos","Not stated","Pakistan remote","pk","https://app.qureos.com/jobs/remote-youtube-shorts-editor-growth-strategist-1757583774304"],
+ ["AI UGC","AI Content Creator (image/video)","Qureos employer","Qureos","Not stated","Check","check","https://app.qureos.com/jobs/ai-content-creator-image-video-1760013898001"],
+ ["AI UGC","AI UGC Video Editor – direct response (Veo 3)","Qureos employer","Qureos","Not stated","Check","check","https://app.qureos.com/jobs/ai-ugc-video-editor-direct-response-ads-veo-3-or-similar-1773445853365"],
+ ["AI UGC","AI UGC Video Creator (remote)","Qureos employer","Qureos","Not stated","Check","check","https://app.qureos.com/jobs/ai-ugc-video-creator-remote-1776199868620"],
+ ["AI UGC","Remote video editor for AI product videos (Veo3, HeyGen, CapCut)","Mustakbil employers","Mustakbil","~40–80k PKR","Pakistan","pk","https://www.mustakbil.com/jobs/pakistan/online/media"],
+ ["AI UGC","AI Content Creator & Video Editor","Mega Marketing Network","ai-search.io","Not stated","Online or Karachi","pk","https://ai-search.io/job-board/mega-marketing-network-ai-content-creator-video-editor-faceless-content-20260214"],
+ ["AI UGC","UGC Video Editor","RZ HR Studio","Remotive","Varies","Worldwide","world","https://remotive.com/remote/jobs/design/ugc-video-editor-5007972"],
+ ["AI UGC","UGC Video Editor","RunRemote","Marketing Monk","$1,600–2,000/mo","Tagged worldwide; text mentions Philippines","check","https://www.marketingmonk.so/jobboard/jobs/ugc-video-editor-at-runremote-8rw6fc"],
+ ["AI UGC","AI UGC Creator (contract-to-hire)","Supplement brand","Upwork","Not stated","Worldwide","world","https://www.upwork.com/jobs/~022067282125615982184"],
+ ["AI UGC","AI Video Creator – HeyGen, Synthesia, Premiere","Client","Upwork","Not stated","Worldwide","world","https://www.upwork.com/freelance-jobs/apply/Video-Creator-for-UGC-Ads-using-HeyGen-Synthesia-Premiere-Pro_~022052362404962430590/"],
+ ["AI UGC","AI Video Editor for Ecom Brand","Ecom brand","Upwork","$1,500 fixed","Check","check","https://www.upwork.com/freelance-jobs/apply/Video-Editor-for-Ecom-Brand-UGC-VSLs-Generated-Creatives_~022064839262373393046/"],
+ ["AI UGC","Video Editor – UGC Ads, VSL, AI generation","DTC brand","Upwork","$5–15/hr","Check","check","https://www.upwork.com/freelance-jobs/apply/Video-Editor-UGC-Ads-VSL-Roll-Sourcing-Generation-DTC-Meta-Performance-Creative_~022060110093189090302/"],
+ ["AI UGC","AI UGC Video Editor + winning-ad bonuses","Client","Upwork","$1,500–2,500/mo","Remote; paid test","check","https://www.upwork.com/freelance-jobs/apply/UGC-Video-Editor-Remote-500-500-month-Winning-Bonuses_~022063025294117392065/"],
+ ["AI UGC","AI UGC Video Creator & Editor (ongoing)","E-commerce client","Upwork","Not stated","Check","check","https://upwork.com/freelance-jobs/apply/UGC-Video-Creator-Editor-Ongoing-commerce_~022066508671787955411/"],
+ ["AI UGC","AI Video Creator & DTC Ad Creative Specialist","Client","Upwork","$10–50/hr","Worldwide","world","https://www.upwork.com/freelance-jobs/apply/Video-Creator-DTC-Creative-Specialist-for-Meta-TikTok-Short-Form-Advertising_~022061205156339143127/"],
+ ["AI UGC","AI Content Creator (Meta Ads)","Client","Upwork","Not stated","Check","check","https://www.upwork.com/freelance-jobs/apply/Content-Creator-Meta-Ads-Video-Generation_~022077011114726797566/"],
+ ["AI UGC","AI UGC Creator & Editor – TikToks/Reels (Higgsfield)","Client","Upwork","Not stated","Check","check","https://www.upwork.com/freelance-jobs/apply/UGC-Creator-Video-Editor-for-Viral-TikToks-Reels-Higgsfield-experience-preferred_~022068498663671339312"],
+ ["AI UGC","Expert AI UGC creator","Client","Upwork","Not stated","Check","check","https://www.upwork.com/freelance-jobs/apply/Expert-UGC-creator-needed_~022052334852707357326/"],
+ ["AI UGC","AI Video Ad Creator","RemodelBoom","Weekday","$8–20/hr","Remote","check","https://jobs.weekday.works/ai-video-ad-creator-at-remodelboom-4398094744"],
+ ["AI UGC","AI Video Editor (UGC Ads)","Client","OnlineJobs.ph","$1,200/mo","Remote","check","https://www.onlinejobs.ph/jobseekers/job/AI-Video-Editor-UGC-Ads-Remote-1663438"],
+ ["AI UGC","AI UGC Ad Creator","Client","OnlineJobs.ph","Not stated","Remote","check","https://www.onlinejobs.ph/jobseekers/job/1676857"],
+ ["AI UGC","AI UGC Short-Form Video Editor (full-time)","Client","OnlineJobs.ph","Not stated","Remote","check","https://www.onlinejobs.ph/jobseekers/job/AI-UGC-Short-Form-Video-Editor-Full-Time-Long-Term-1677624"],
+ ["AI UGC","Senior UGC Editor – Meta Ads + AI generation","Client","OnlineJobs.ph","Not stated","Remote","check","https://tp.onlinejobs.ph/jobseekers/job/Senior-UGC-Video-Editor-Meta-Ads-B-Roll-Sourcing-AI-Generation-1662331"],
+ ["AI UGC","AI Video Editor – Ecom Ads (Higgsfield, HeyGen)","Client","OnlineJobs.ph","Not stated","Remote","check","https://www.onlinejobs.ph/jobseekers/job/1667732"],
+ ["AI UGC","AI UGC & Performance Ads Video Editor","Paired (Dubai agency)","Remotive","Competitive","Worldwide","world","https://remotive.com/remote/jobs/all-others/ai-ugc-performance-ads-video-editor-5660719"],
+ ["AI UGC","AI Creative Video Editor (UGC & Paid Ads)","Paired (DTC agency)","Workable","Not stated","Remote","world","https://jobs.workable.com/jobs/e9cc2e98-5cc0-4c03-89e3-3425c2bec996.md"],
+ ["AI UGC","AI Video Editor","OnHires","Remotive","Not stated","Remote","check","https://remotive.com/remote/jobs/all-others/ai-video-editor-5935782"],
+ ["AI UGC","AI Video Creator & Editor","Mint Source (London skincare)","Remotive","Not stated","Worldwide, UK hours","check","https://remotive.com/remote/jobs/all-others/ai-video-creator-editor-5871378"],
+ ["AI UGC","AI Ad UGC Creator (Higgsfield, Seedance)","PodPitch","ByeByeOffice","Not stated","Remote","check","https://www.byebyeoffice.com/job/podpitch-ai-ad-ugc-creator-higgsfield-seedance"],
+ ["AI UGC","AI Motion Designer / Video","Qeads","Marketing Monk","Not stated","Remote","check","https://www.marketingmonk.so/jobboard/jobs/ai-motion-designer-video-at-qeads-bu6xkj"],
+ ["AI UGC","AI Video Creator & Editor","Jobgether clients","Lever","Not stated","Check","check","https://jobs.lever.co/jobgether/2b937c6a-5a08-4c47-b6a3-b5f11757da20"],
+ ["AI UGC","Senior AI Video Editor (UGC-style ads)","RemotelyTalents","Remotive","Not stated","Uzbekistan-linked","check","https://remotive.com/remote/jobs/all-others/senior-ai-video-editor-4806348"],
+ ["AI UGC","AI Video Ad Creator","Mediabistro employer","Mediabistro","Not stated","Remote","check","https://www.mediabistro.com/jobs/3539244095-ai-video-ad-creator"],
+ ["AI UGC","AI Video Creator / Video Editor / ADS","Djinni employer","Djinni","Not stated","Remote","check","https://djinni.co/jobs/852891-ai-video-creator-video-editor-ads/"],
+ ["AI UGC","AI-First Video Creator – Meta & YouTube Ads","Djinni employer","Djinni","Not stated","Remote","check","https://djinni.co/jobs/848942-ai-first-video-creator-meta-youtube-ads-high-/"],
+ ["AI UGC","AI Video Creator","Workana employer","RemoteDXB","Not stated","Gulf / remote","check","https://www.remotedxb.com/job/ai-video-creator-workana--1237419"],
+ ["AI UGC","UGC Video Editor (SEA version)","UMAEZ LLC","Workable","$6–9k/yr","Southeast Asia only","restricted","https://apply.workable.com/umaez-llc/jobs/view/677122EF8C.md"],
+ ["AI UGC","Video Creator & Editor – UGC Ads","Optimy","Remotive","Not stated","Spain only","restricted","https://remotive.com/remote/jobs/design/video-creator-and-editor-ugc-ads-5779811"],
+ // ---------- Real estate ----------
+ ["Real estate","Real Estate Video Editor","NeoWork","Remotive","Not stated","Worldwide (may need US hours)","world","https://remotive.com/remote/jobs/design/real-estate-video-editor-5125445"],
+ ["Real estate","Short-form video editor (real estate clients)","Jobera employer","Jobera","Not stated","Worldwide","world","https://jobera.com/job/somewhere-video-editor-58640418343-17761963/"],
+ ["Real estate","Real Estate Video Editor","Qureos employer","Qureos","Not stated","Check","check","https://app.qureos.com/jobs/real-estate-video-editor-1773483030510"],
+ ["Real estate","Video Editor – Real Estate, Final Cut Pro, MotionVFX","Qureos employer","Qureos","Not stated","Check","check","https://app.qureos.com/jobs/video-editor-real-estate-final-cut-pro-motionvfx-1778523904586"],
+ ["Real estate","Video Editor – Real Estate & Commercial","20four7VA","Jobgether","Not stated","Check","check","https://dynamic.jobgether.com/offer/6834c18ec940ce4b3a2eef78-cpt-9003-video-editor---real-estate-commercial-projects-at-20four7va"],
+ ["Real estate","Video Editor – Real Estate","Bamboo Works","Jobgether","Not stated","Check","check","https://jobgether.com/offer/69bb8a1a24d79271ee0b77ff-video-editor-real-estate"],
+ ["Real estate","Long-term editor, real estate talking-head YouTube","Client","Upwork","Not stated","Check","check","https://www.upwork.com/freelance-jobs/apply/Long-Term-Video-Editor-for-Real-Estate-Talking-Head-YouTube-Videos_~022079931041359439152/"],
+ ["Real estate","Property Reels & Walkthroughs (30s–1.5 min)","South Florida team","Upwork","$50 per video","Check","check","https://www.upwork.com/freelance-jobs/apply/Real-Estate-Video-Editor-Property-Reels-Walkthroughs-sec-min-Video_~022080721833770959613/"],
+ ["Real estate","Commercial Real Estate Video Editor (social)","Client","Upwork","Not stated","Check","check","https://www.upwork.com/jobs/~022066354740516113062"],
+ ["Real estate","Video Editor – Real Estate Social (Reels/Shorts)","RealMedia","Weekday","Not stated","Remote","check","https://jobs.weekday.works/video-editor-real-estate-social-media-%25E2%2580%2593-reels-shorts-remote-sc-at-realmedia-careers-4384944321"],
+ ["Real estate","Full-time real estate video editor","Staffify","Dynamite Jobs","Not stated","Remote","check","https://dynamitejobs.com/company/staffify/remote-job/full-time-real-estate-video-editor-remote"],
+ ["Real estate","YouTube Video Editor for Real Estate","Client","OnlineJobs.ph","Not stated","Remote","check","https://www.onlinejobs.ph/jobseekers/job/1398571"],
+ ["Real estate","Real Estate Video Editor","Client","OnlineJobs.ph","Not stated","Remote","check","https://onlinejobs.ph/jobseekers/job/1313051"],
+ ["Real estate","Video Editor (Real Estate, Final Cut Pro)","Client","OnlineJobs.ph","Not stated","Remote","check","https://www.onlinejobs.ph/jobseekers/job/1652253"],
+ ["Real estate","Senior Real Estate Video Editor","Client","OnlineJobs.ph","Not stated","Remote","check","https://www.onlinejobs.ph/jobseekers/job/1667698"],
+ ["Real estate","Video Editor & AI Content Assistant (real estate brand)","Client","OnlineJobs.ph","$8–15/hr","Remote","check","https://www.onlinejobs.ph/jobseekers/job/1634680"],
+ ["Real estate","YouTube & Short-Form Editor (home tours)","Client","OnlineJobs.ph","Not stated","Remote","check","https://www.onlinejobs.ph/jobseekers/job/1476734"],
+ ["Real estate","YouTube and Reels Video Editor – Real Estate","Mediabistro employer","Mediabistro","Not stated","Remote","check","https://www.mediabistro.com/jobs/3539165704-youtube-and-reels-video-editor-real-estate"],
+ ["Real estate","Video Editor – Real Estate Media (full-time)","Hubstaff employer","Hubstaff Talent","Not stated","Remote","check","https://hubstafftalent.net/jobs/video-editor-real-estate-media"],
+ ["Real estate","Full-time remote short-form editor","Buzzing (real estate marketing agency)","Weekday","Not stated","Remote","check","https://jobs.weekday.works/video-editor-at-buzzing-wkdycg6du7"],
+ ["Real estate","Real Estate Video Editor","VirtueStaff","Marketing Monk","Not stated","Remote","check","https://www.marketingmonk.so/jobboard/jobs/real-estate-video-editor-at-virtuestaff-0d4zyv"],
+ ["Real estate","Contract Video Editor (eLearning, Reels)","Freedom Trail Realty School","Gusto","Not stated","Remote","check","https://jobs.gusto.com/postings/freedom-trail-realty-school-inc-contract-video-editor-155a1052-b845-4f83-b920-998b4db3469a"],
+ ["Real estate","Real Estate Video Editor","Hunt St","Workable","AUD 1,600–2,400/mo","Philippines only","restricted","https://apply.workable.com/hunt-st/jobs/view/9B8E45731F.md"],
+ ["Real estate","Video Editor for Real Estate Educator","Paired","Workable","USD 6–12k/mo","Philippines, Pacific hours","restricted","https://apply.workable.com/pairedrecruiting/jobs/view/DA0A2E6577.md"],
+ ["Real estate","Video Editor – US Based Remote","Anywhere Real Estate","Marketing Monk","$60–80k/yr","US only","restricted","https://www.marketingmonk.so/jobboard/jobs/video-editor-us-based-remote-at-anywhere-zezqyv"]
+];
+
+const KEYWORDS = {
+ "AI UGC": ["AI UGC editor","AI UGC creator","AI video ad creator","AI video editor","UGC ads editor","UGC video editor","performance creative editor","Meta ads video editor","TikTok Shop video","DTC video editor","faceless content creator","short-form video editor"],
+ "AI tools": ["Higgsfield","HeyGen","Arcads","Creatify","MakeUGC","Kling","Veo","Runway","Sora","ElevenLabs","CapCut","Synthesia"],
+ "Real estate": ["real estate video editor","real estate reels editor","property video editor","listing video editor","real estate YouTube editor","real estate short-form","home tour video editor","real estate content creator"],
+ "Hiring phrases (social)": ["\"hiring\" \"UGC editor\"","\"hiring\" \"AI UGC\"","[HIRING] video editor","\"looking for\" \"video editor\" real estate","#hiringvideoeditor","#ugcjobs","#ugccreator"],
+ "Add-ons": ["remote","worldwide","contract","freelance","part-time","entry level","paid test"]
+};
+
+const MANUAL = [
+ ["LinkedIn","Jobs tab: AI UGC + Real estate keywords. Filters: Remote, Past 24 hours, Contract. Also search Posts for “hiring UGC editor”.","Login needed"],
+ ["Indeed / Indeed Pakistan","AI UGC + Real estate keywords, location “Remote”, sort by date.","Login needed"],
+ ["Wellfound","Search “video editor”, “content creator”. Filter Remote.","No results"],
+ ["Contra","Search “UGC”, “video editor”, “AI video”.","No results"],
+ ["X (Twitter)","Hiring phrases, sort by Latest.","Not indexed"],
+ ["Facebook groups","Join “UGC Creators Jobs”, “Video Editors Hiring”, “Real Estate Marketing Jobs”. Search “hiring” inside each.","Private"],
+ ["Reddit","r/forhire, r/hiring, r/HireAnEditor, r/UGCcreators. Search “[HIRING]”, “UGC”, “real estate”. Sort by New.","Few results"],
+ ["Instagram / TikTok","Hashtags #hiringvideoeditor, #ugcjobs, #ugccreator.","Not indexed"],
+ ["Upwork","AI UGC + Real estate keywords. Posted last 24 hours. Turn on job alerts.","Live search needs login"],
+ ["Fiverr","Create gigs: “AI UGC video ads” and “real estate reels editing”.","Not searched"],
+ ["Freelancer.com","“real estate video editor”, “UGC video”, “video editor Instagram reels”.","Not searched live"],
+ ["PeoplePerHour","“UGC video”, “real estate video editing”.","Not searched"],
+ ["Toptal / Guru","Create a profile and apply.","Not searched"],
+ ["RemoteOK","remoteok.com/remote-video-editor-jobs, filter by recent.","Generic page only"],
+ ["We Work Remotely","Design and Marketing categories: “video editor”, “UGC”.","No results"],
+ ["Himalayas, FlexJobs, Remote.co, Jobspresso, Arc.dev","“video editor”, “content creator”.","Not searched"],
+ ["Rozee.pk","“video editor”, “content creator”, “AI video”. Filter Remote.","Not searched"],
+ ["ytjobs.co","“video editor”, “short-form”, “UGC”, “real estate”. Free profile.","Content did not load"]
+];
+
+const $ = id => document.getElementById(id);
+const scopeLabel = {pk:"Pakistan",world:"Worldwide",check:"Check",restricted:"Restricted"};
+const done = new Set(JSON.parse(localStorage.getItem("jobsDone")||"[]"));
+
+// platform filter options
+[...new Set(JOBS.map(j=>j[3]))].sort().forEach(p=>{
+  const o=document.createElement("option");o.textContent=p;$("fPlat").appendChild(o);
+});
+
+function render(){
+  const q=$("q").value.toLowerCase(), c=$("fCat").value, s=$("fScope").value, p=$("fPlat").value;
+  const rows=JOBS.filter(j=>(!c||j[0]===c)&&(!s||j[6]===s)&&(!p||j[3]===p)&&(!q||j.slice(1,6).join(" ").toLowerCase().includes(q)));
+  $("rows").innerHTML=rows.map(j=>`<tr class="${done.has(j[7])?"done":""}">
+    <td><input type="checkbox" data-u="${j[7]}" ${done.has(j[7])?"checked":""}></td>
+    <td><a href="${j[7]}" target="_blank" rel="noopener">${j[1]}</a><br><small style="color:var(--muted)">${j[0]}</small></td>
+    <td>${j[2]}</td><td>${j[3]}</td><td>${j[4]}</td>
+    <td><span class="tag ${j[6]}">${scopeLabel[j[6]]}</span><br><small style="color:var(--muted)">${j[5]}</small></td></tr>`).join("");
+  $("count").textContent=`${rows.length} of ${JOBS.length} jobs · ${done.size} applied`;
+}
+["q","fCat","fScope","fPlat"].forEach(id=>$(id).addEventListener("input",render));
+$("rows").addEventListener("change",e=>{
+  const u=e.target.dataset.u; if(!u)return;
+  e.target.checked?done.add(u):done.delete(u);
+  localStorage.setItem("jobsDone",JSON.stringify([...done])); render();
+});
+
+$("kwGrid").innerHTML=Object.entries(KEYWORDS).map(([g,list])=>
+  `<div class="card"><h3>${g}</h3><div class="kw">${list.map(k=>`<button>${k.replace(/</g,"&lt;")}</button>`).join("")}</div></div>`).join("");
+$("kwGrid").addEventListener("click",e=>{
+  if(e.target.tagName!=="BUTTON")return;
+  navigator.clipboard.writeText(e.target.textContent).then(()=>{
+    e.target.classList.add("copied");setTimeout(()=>e.target.classList.remove("copied"),900);
+  });
+});
+
+$("manualGrid").innerHTML=MANUAL.map(m=>
+  `<div class="card"><h3>${m[0]}</h3><p>${m[1]}</p><p><span class="tag check">${m[2]}</span></p></div>`).join("");
+
+render();
+</script>
+</body>
+</html>
