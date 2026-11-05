@@ -65,7 +65,7 @@
   <p class="sub">Found through web search, so dates were not verified. Open each one, check it is still open and that Pakistan is allowed. Tick the box when you have applied (saved in this browser).</p>
   <div class="controls">
     <input type="search" id="q" placeholder="Search company, title, platform…">
-    <select id="fCat"><option value="">All roles</option><option>AI UGC</option><option>Real estate</option></select>
+    <select id="fCat"><option value="">All roles</option><option>AI UGC</option><option>Real estate</option><option>Other editing</option></select>
     <select id="fScope">
       <option value="">All locations</option>
       <option value="pk">Pakistan listed</option>
@@ -183,6 +183,29 @@ const JOBS = [
  ["AI UGC","AI Video Creator","Workana employer","RemoteDXB","Not stated","Gulf / remote","check","https://www.remotedxb.com/job/ai-video-creator-workana--1237419"],
  ["AI UGC","UGC Video Editor (SEA version)","UMAEZ LLC","Workable","$6–9k/yr","Southeast Asia only","restricted","https://apply.workable.com/umaez-llc/jobs/view/677122EF8C.md"],
  ["AI UGC","Video Creator & Editor – UGC Ads","Optimy","Remotive","Not stated","Spain only","restricted","https://remotive.com/remote/jobs/design/video-creator-and-editor-ugc-ads-5779811"],
+ // ---------- videoeditor.jobs (added 5 Nov 2026) ----------
+ ["AI UGC","AI Ad Editor","0xAtlas","videoeditor.jobs","$3K+/mo","Worldwide remote","world","https://forms.gle/TqQDi7jgRZzukhr29"],
+ ["AI UGC","AI Video Editor","Lysander Commerce","videoeditor.jobs","$2K+/mo + bonus","Worldwide remote","world","https://lnkd.in/gC-ayJ74"],
+ ["AI UGC","AI Video Editor (performance marketing)","Moon Commerce","videoeditor.jobs","Not stated","Worldwide remote","world","https://rs.linkedin.com/jobs/view/ai-video-editor-performance-marketing-worldwide-at-moon-commerce-4487291172"],
+ ["AI UGC","Senior AI Video Editor","Unnamed agency (X post)","videoeditor.jobs","Not stated","Worldwide remote","world","https://x.com/creativeroom___/status/2118095905073025523"],
+ ["AI UGC","AI Video Editor (performance bonus)","Unnamed brand (ClickUp form)","videoeditor.jobs","Well paid + bonus","Worldwide remote","world","https://forms.clickup.com/90141594379/f/2kydq4rb-24654/APAYHZW2M60PL7FYNG"],
+ ["AI UGC","Senior Performance Creative Editor & AI Ad Brief Builder","JLR Consultancy","videoeditor.jobs","Not stated","Worldwide remote","world","https://www.linkedin.com/posts/jlr-consultancy_jlrconsultancy-jlrhiring-hiringph-activity-7523723632515121152-jVAz"],
+ ["AI UGC","Meta Ads Video Editor","Agency for 7–8 figure eCom brands (X post)","videoeditor.jobs","Not stated","Worldwide remote","world","https://x.com/lorenzo_pravata/status/2117922430941364447"],
+ ["AI UGC","Video Editor, UGC & AI Ads (Meta, DTC)","Eli Z Group","videoeditor.jobs","Not stated","Listed Lithuania – check Pakistan","check","https://lt.linkedin.com/jobs/view/video-editor-ugc-ai-ads-meta-dtc-at-eli-z-group-4485099247"],
+ ["AI UGC","AI Video Editor","Kandy","videoeditor.jobs","~$18K/yr","Listed Romania – check Pakistan","check","https://ro.linkedin.com/jobs/view/ai-video-editor-at-kandy-4485504142"],
+ ["Other editing","Video Editor (paid per video package)","6ix Reacts","videoeditor.jobs","Per video","Worldwide remote – verify X link","check","https://x.com/ChainBoostHQ/status/2118202279966671158"],
+ ["Other editing","Freelance Video Editor (day rate)","Pink Shell Studio","videoeditor.jobs","Day rate","Worldwide remote","world","https://www.linkedin.com/posts/sherimatthews1_freelance-videoeditor-graphicdesign-activity-7523723962879528960-YUxs"],
+ ["Other editing","Senior Performance Creative Video Editor","Jumpspeak","videoeditor.jobs","Not stated","Brazil +2 – check Pakistan","check","https://br.linkedin.com/jobs/view/senior-performance-creative-video-editor-at-jumpspeak-4487559752"],
+ ["Other editing","Video Editor & Graphic Designer","NZAB","videoeditor.jobs","~$11–13K/yr","Philippines","restricted","https://jobs.workable.com/view/vUGHfjaSwUrUK4ainT5Fbc"],
+ // ---------- Twine (added 5 Nov 2026) ----------
+ ["AI UGC","AI Video Editor (beginner)","Private client","Twine","Not stated","Remote, anywhere","world","https://www.twine.net/projects/b9ulg0-searching-ai-video-editor-video-editor-remote-job"],
+ ["Other editing","Short-form editor – cafe & restaurant Reels (ongoing)","LTL Productions","Twine","$250–750","Remote, anywhere","world","https://www.twine.net/projects/b9um70-urgent-short-form-video-editor-for-cafe-and-restaurant-instagram-reels-ongoing-video-editor-remote-job"],
+ ["Other editing","Video Editor – True Crime YouTube documentaries","Private client","Twine","Not stated","Remote, anywhere","world","https://www.twine.net/projects/b9un30-searching-video-editor-for-true-crime-youtube-documentaries-video-editor-remote-job"],
+ ["Other editing","Video Editor (beginner)","Private client","Twine","Not stated","Remote, anywhere","world","https://www.twine.net/projects/b9ule0-searching-video-editor-video-editor-remote-job"],
+ ["Other editing","Fashion-film / brand-short editor (6 Instagram teasers)","Atharva Pahilwan (for client)","Twine","~$250–350 total","Open worldwide; excludes UGC & AI edits","check","https://www.twine.net/projects/b9ukx0-freelance-fashion-film-brand-short-video-editor-6-part-instagram-teaser-series-video-editor-remote-job"],
+ // ---------- videoeditorjobs.com ----------
+ ["Other editing","Short-Form Video Editor / Motion Designer (faceless)","Independent creator","videoeditorjobs.com","Negotiable","Remote – see post","check","https://www.videoeditorjobs.com/editors/?job=job-1uw0hvp"],
+ ["Other editing","Looking for a video editor","Independent creator","videoeditorjobs.com","Not stated","Remote – see post","check","https://www.videoeditorjobs.com/editors/?job=job-1uw1bf0"],
  // ---------- Real estate ----------
  ["Real estate","Real Estate Video Editor","NeoWork","Remotive","Not stated","Worldwide (may need US hours)","world","https://remotive.com/remote/jobs/design/real-estate-video-editor-5125445"],
  ["Real estate","Short-form video editor (real estate clients)","Jobera employer","Jobera","Not stated","Worldwide","world","https://jobera.com/job/somewhere-video-editor-58640418343-17761963/"],
@@ -222,7 +245,10 @@ const KEYWORDS = {
 const MANUAL = [
  ["LinkedIn","Jobs tab: AI UGC + Real estate keywords. Filters: Remote, Past 24 hours, Contract. Also search Posts for “hiring UGC editor”.","Login needed"],
  ["Indeed / Indeed Pakistan","AI UGC + Real estate keywords, location “Remote”, sort by date.","Login needed"],
- ["Wellfound","Search “video editor”, “content creator”. Filter Remote.","No results"],
+ ["Wellfound","Search “video editor”, “content creator”. Filter Remote. The marketing page I checked had only US-based, high-salary marketing and sales roles, no UGC or video editor jobs.","Checked – no fit"],
+ ["videoeditor.jobs","Large board (226 roles, I read the first 25). Search “AI video editor”, “UGC”, “Meta ads”, “real estate”. Many apply links go to X posts, LinkedIn or forms.","Partly checked"],
+ ["Twine (twine.net/jobs/video-editors)","Check daily. Many jobs are country-restricted, so filter by Remote / worldwide.","Partly checked"],
+ ["videoeditorjobs.com","Only 3 posts were visible. Low value but quick to check.","Partly checked"],
  ["Contra","Search “UGC”, “video editor”, “AI video”.","No results"],
  ["X (Twitter)","Hiring phrases, sort by Latest.","Not indexed"],
  ["Facebook groups","Join “UGC Creators Jobs”, “Video Editors Hiring”, “Real Estate Marketing Jobs”. Search “hiring” inside each.","Private"],
